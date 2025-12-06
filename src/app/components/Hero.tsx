@@ -1,212 +1,130 @@
+// src/app/components/Hero.tsx  ←  UPDATED VERSION with smaller image
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Stage, useGLTF, Html, useProgress } from "@react-three/drei";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { Github, Linkedin, Twitter } from "lucide-react";
-import { Typewriter } from "react-simple-typewriter";
-
-// Preload the 3D model for faster initial load
-useGLTF.preload("/models/laptop.glb");
-
-// Loader component for Canvas
-function Loader() {
-  const { progress } = useProgress();
-  return (
-    <Html center>
-      <div className="text-white font-bold text-lg">
-        {Math.round(progress)}%
-      </div>
-    </Html>
-  );
-}
-
-// 3D Laptop Model with smooth hover rotation
-function LaptopModel({
-  mouseX,
-  mouseY,
-  onLoaded,
-}: {
-  mouseX: number;
-  mouseY: number;
-  onLoaded?: () => void;
-}) {
-  const gltf = useGLTF("/models/laptop.glb");
-  const ref = useRef<any>(null);
-
-  useEffect(() => {
-    if (gltf && onLoaded) onLoaded();
-  }, [gltf, onLoaded]);
-
-  useFrame(() => {
-    if (ref.current) {
-      const targetY = (mouseX / window.innerWidth - 0.5) * Math.PI * 0.4;
-      const targetX = -(mouseY / window.innerHeight - 0.5) * Math.PI * 0.2;
-
-      ref.current.rotation.y += (targetY - ref.current.rotation.y) * 0.05;
-      ref.current.rotation.x += (targetX - ref.current.rotation.x) * 0.05;
-    }
-  });
-
-  return (
-    <primitive ref={ref} object={gltf.scene} scale={1} position={[0, -1, 0]} />
-  );
-}
+import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
-  const [zoomed, setZoomed] = useState(false);
-  const [modelLoaded, setModelLoaded] = useState(false);
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
-
-  // Mouse tracking (client-side only)
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMouseX(e.clientX);
-      setMouseY(e.clientY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-blue-950 to-blue-900 overflow-hidden text-white px-4"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden 
+                 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16 md:pt-20"
     >
-      {/* 3D Laptop Canvas */}
-      <AnimatePresence>
-        {!zoomed && (
-          <motion.div
-            className="w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] relative"
-            initial={{ opacity: 1, scale: 1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 2 }}
-            transition={{ duration: 0.6 }}
-          >
-            {!modelLoaded && (
-              <img
-                src="/assets/placeholder.png"
-                alt="Laptop placeholder"
-                className="absolute inset-0 w-full h-full object-contain"
-              />
-            )}
+      {/* Code rain + floating Blender icons */}
+      <div className="absolute inset-0 opacity-60">
+        <pre className="absolute top-10 left-10 text-green-400 font-mono text-sm animate-slide-down">
+          {`const creator = {
+  name: "Emmanuel",
+  powers: ["Code", "3D", "Cinema"]
+};`}
+        </pre>
+        <pre className="absolute top-32 right-20 text-pink-400 font-mono text-sm animate-slide-down-delay">
+          {`<Laptop rotation={[0.3, Math.PI, 0]}/>`}
+        </pre>
+        <pre className="absolute bottom-40 left-32 text-yellow-400 font-mono text-sm animate-slide-down-slow">
+          {`render() => "Unforgettable";`}
+        </pre>
+        <pre className="absolute bottom-20 right-10 text-cyan-400 font-mono text-sm animate-slide-up">
+          {`// Live @ NEC Liberia`}
+        </pre>
+        <div className="absolute top-20 left-20 text-purple-500 text-6xl animate-blender-float">
+          Cube
+        </div>
+        <div className="absolute top-40 right-32 text-pink-500 text-5xl animate-blender-float-delay">
+          Sphere
+        </div>
+        <div className="absolute bottom-32 left-40 text-teal-400 text-7xl animate-blender-spin">
+          Suzanne
+        </div>
+        <div className="absolute bottom-48 right-20 text-yellow-500 text-6xl animate-blender-float-slow">
+          Camera
+        </div>
+      </div>
 
-            <Canvas camera={{ position: [0, 1, 8], fov: 50 }}>
-              <ambientLight intensity={0.6} />
-              <directionalLight position={[5, 5, 5]} intensity={1} />
-              <Stage environment="city" intensity={0.6}>
-                <LaptopModel
-                  mouseX={mouseX}
-                  mouseY={mouseY}
-                  onLoaded={() => setModelLoaded(true)}
-                />
-              </Stage>
-              {!modelLoaded && <Loader />}
-            </Canvas>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Go Button + Intro Text */}
-      {!zoomed && (
+      {/* Main content */}
+      <div className="relative z-10 text-center px-4 md:px-6 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mt-6 flex flex-col items-center text-center max-w-xl"
+          transition={{ duration: 1 }}
+          className="mt-8 md:mt-0"
         >
-          <button
-            onClick={() => setZoomed(true)}
-            className="px-6 py-3 sm:px-8 sm:py-4 bg-yellow-600 text-black font-bold rounded-lg hover:bg-yellow-500 transition transform hover:scale-105 text-sm sm:text-base md:text-lg"
-          >
-            <Typewriter
-              words={["Enter Portfolio"]}
-              loop={0}
-              cursor
-              cursorStyle="|"
-              typeSpeed={60}
-            />
-          </button>
+          {/* Reduced image size */}
+          <Image
+            src="/ema.jpeg"
+            alt="Emmanuel Cheeseman"
+            width={140}
+            height={140}
+            className="rounded-full mx-auto mb-6 md:mb-8 border-6 border-white/20 shadow-xl backdrop-blur-sm"
+            priority
+          />
 
-          <p className="mt-4 text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
-            Welcome! I build modern web applications with engaging, responsive
-            designs. Explore my work and see how I turn ideas into interactive
-            digital experiences.
-          </p>
-        </motion.div>
-      )}
-
-      {/* Laptop Screen Content */}
-      {zoomed && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4">
-            Emmanuel Cheeseman
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 md:mb-6 tracking-tighter">
+            EMMANUEL <span className="text-yellow-500">CHEESEMAN</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-2xl text-gray-300 mb-6 max-w-2xl">
-            <Typewriter
-              words={[
-                "I build modern web apps.",
-                "I design engaging experiences.",
-                "I craft responsive UIs.",
+
+          <div className="h-16 md:h-20 mb-4 md:mb-6">
+            <TypeAnimation
+              sequence={[
+                "Full-Stack Developer",
+                1800,
+                "3D Artist & Animator",
+                1800,
+                "Media Director @ Word of Life",
+                1800,
+                "Live Broadcast Engineer @ NEC",
+                1800,
+                "AI Video Creator",
+                2000,
+                "Building Liberia's digital future",
+                3000,
               ]}
-              loop={0}
-              cursor
-              cursorStyle="|"
-              typeSpeed={60}
-              deleteSpeed={40}
-              delaySpeed={1200}
+              wrapper="p"
+              speed={40}
+              repeat={Infinity}
+              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-yellow-400 px-4"
             />
+          </div>
+
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl lg:max-w-4xl mx-auto mt-6 md:mt-10 mb-10 md:mb-14 px-4">
+            From national election systems to 10,000-person worship productions
+            — I fuse code, 3D, and live media into reality.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 justify-center mb-10 md:mb-16 px-4">
             <a
               href="#projects"
-              className="px-6 py-3 bg-yellow-600 text-black rounded-lg font-semibold hover:bg-yellow-500 transition transform hover:scale-105 text-sm sm:text-base"
+              className="px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-6 bg-yellow-500 text-black font-bold sm:font-black text-lg sm:text-xl md:text-2xl rounded-xl sm:rounded-2xl hover:bg-yellow-400 transition transform hover:scale-105 shadow-xl"
             >
-              View My Work
+              ENTER MY WORLD
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-black transition transform hover:scale-105 text-sm sm:text-base"
+              className="px-8 sm:px-10 md:px-14 py-4 sm:py-5 md:py-6 border-3 sm:border-4 border-yellow-500 text-yellow-500 font-bold sm:font-black text-lg sm:text-xl md:text-2xl rounded-xl sm:rounded-2xl hover:bg-yellow-500 hover:text-black transition"
             >
-              Contact Me
+              HIRE ME
             </a>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex gap-6 justify-center">
-            <a
-              href="https://github.com/ewill123"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="w-6 h-6 sm:w-7 sm:h-7 hover:text-yellow-600 transition transform hover:scale-125" />
+          <div className="flex justify-center gap-8 md:gap-12">
+            <a href="https://github.com/ewill123" target="_blank">
+              <Github className="w-8 h-8 md:w-10 md:h-10 text-gray-400 hover:text-yellow-500 transition" />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/emmanuel-chukwu-409a6b295/"
               target="_blank"
-              rel="noopener noreferrer"
             >
-              <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 hover:text-yellow-600 transition transform hover:scale-125" />
+              <Linkedin className="w-8 h-8 md:w-10 md:h-10 text-gray-400 hover:text-yellow-500 transition" />
             </a>
-            <a
-              href="https://x.com/EmmanuelCh39270/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter className="w-6 h-6 sm:w-7 sm:h-7 hover:text-yellow-600 transition transform hover:scale-125" />
+            <a href="https://x.com/EmmanuelCh39270" target="_blank">
+              <Twitter className="w-8 h-8 md:w-10 md:h-10 text-gray-400 hover:text-yellow-500 transition" />
             </a>
           </div>
         </motion.div>
-      )}
+      </div>
     </section>
   );
 }

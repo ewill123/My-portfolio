@@ -1,53 +1,47 @@
 // src/app/page.tsx
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
+import Navbar from "./components/Navbar";
+import Experience from "./components/Experience";
 export default function Home() {
   return (
-    <>
-      {/* Hero / Landing */}
-      <section
-        id="hero"
-        aria-label="Hero"
-        className="w-full max-w-full overflow-hidden"
-      >
+    <main className="min-h-screen">
+      {/* Fixed Navbar */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <section id="hero">
         <Hero />
       </section>
 
       {/* About */}
-      <section
-        id="about"
-        aria-label="About"
-        className="w-full max-w-full overflow-hidden"
-      >
+      <section id="about">
         <About />
       </section>
 
+      {/* Skills */}
+      <section id="skills">
+        <Skills />
+      </section>
+      <section id="experience">
+        <Experience />
+      </section>
       {/* Projects */}
-      <section
-        id="projects"
-        aria-label="Projects"
-        className="w-full max-w-full overflow-hidden"
-      >
+      <section id="projects">
         <Projects />
       </section>
 
       {/* Contact */}
-      <section
-        id="contact"
-        aria-label="Contact"
-        className="w-full max-w-full overflow-hidden"
-      >
+      <section id="contact">
         <Contact />
       </section>
 
       {/* Footer */}
-      <footer className="w-full max-w-full overflow-hidden">
-        <Footer />
-      </footer>
-    </>
+      <Footer />
+    </main>
   );
 }
