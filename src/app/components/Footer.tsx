@@ -160,7 +160,7 @@ export default function Footer() {
                   },
                   {
                     icon: Linkedin,
-                    href: "https://www.linkedin.com/in/emmanuel-chukwu-409a6b295/",
+                    href: "https://www.linkedin.com/in/emmanuelcheeseman",
                     label: "LinkedIn",
                   },
                   {

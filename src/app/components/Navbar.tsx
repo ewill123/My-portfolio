@@ -1,4 +1,4 @@
-// src/app/components/Navbar.tsx - UPGRADED VERSION
+// src/app/components/Navbar.tsx - FIXED VERSION (no theme toggle)
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,9 +10,6 @@ import {
   Mail,
   Menu,
   X,
-  Moon,
-  Sun,
-  Shield,
   Briefcase,
   Home,
   User,
@@ -22,13 +19,11 @@ import {
   DollarSign,
   ChevronRight,
 } from "lucide-react";
-import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const navLinks = [
     {
@@ -176,7 +171,7 @@ export default function Navbar() {
               <span className="text-sm">Invest</span>
             </button>
 
-            {/* Social Links & Theme Toggle */}
+            {/* Social Links (Theme toggle REMOVED) */}
             <div className="flex items-center gap-3 ml-6 border-l border-gray-300 dark:border-gray-700 pl-6">
               <a
                 href="https://github.com/ewill123"
@@ -188,7 +183,7 @@ export default function Navbar() {
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://www.linkedin.com/in/emmanuel-chukwu-409a6b295/"
+                href="https://www.linkedin.com/in/emmanuelcheeseman"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-all"
@@ -212,19 +207,6 @@ export default function Navbar() {
               >
                 <Mail className="w-4 h-4" />
               </a>
-
-              {/* Theme Toggle */}
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-purple-500 hover:text-white transition-all"
-                aria-label="Toggle theme"
-              >
-                {resolvedTheme === "dark" ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
-              </button>
             </div>
           </div>
 
@@ -344,7 +326,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Contact Info & Social */}
+              {/* Contact Info & Social (Theme toggle REMOVED) */}
               <div className="p-6 border-t border-gray-200 dark:border-gray-800 space-y-6">
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white mb-3">
@@ -387,24 +369,6 @@ export default function Navbar() {
                     📞 +231 880 223 272
                   </a>
                 </div>
-
-                {/* Theme Toggle */}
-                <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="w-full flex items-center justify-center gap-2 p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                >
-                  {resolvedTheme === "dark" ? (
-                    <>
-                      <Sun className="w-4 h-4" />
-                      <span>Light Mode</span>
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="w-4 h-4" />
-                      <span>Dark Mode</span>
-                    </>
-                  )}
-                </button>
               </div>
             </motion.div>
           </>

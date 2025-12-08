@@ -140,3 +140,18 @@ body {
 .animate-blender-float-slow {
   animation: blender-float 10s ease-in-out 3s infinite;
 }
+/* Font loading optimization */
+@font-face {
+  font-family: "FallbackGeist";
+  src: local("system-ui"), local("-apple-system"), local("BlinkMacSystemFont");
+  font-display: swap;
+  ascent-override: 95%;
+  descent-override: 20%;
+  line-gap-override: normal;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Geist", "FallbackGeist", system-ui, -apple-system, sans-serif; /* ← Updated */
+}

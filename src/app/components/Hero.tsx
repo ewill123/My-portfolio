@@ -54,7 +54,7 @@ export default function Hero() {
         >
           {/* Reduced image size */}
           <Image
-            src="/ema.jpeg"
+            src="/profile.webp"
             alt="Emmanuel Cheeseman"
             width={140}
             height={140}
@@ -114,7 +114,7 @@ export default function Hero() {
               <Github className="w-8 h-8 md:w-10 md:h-10 text-gray-400 hover:text-yellow-500 transition" />
             </a>
             <a
-              href="https://www.linkedin.com/in/emmanuel-chukwu-409a6b295/"
+              href="https://www.linkedin.com/in/emmanuelcheeseman"
               target="_blank"
             >
               <Linkedin className="w-8 h-8 md:w-10 md:h-10 text-gray-400 hover:text-yellow-500 transition" />
