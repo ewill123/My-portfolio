@@ -164,10 +164,10 @@ export default function About() {
               <div className="absolute -inset-4 bg-amber-500/[0.07] rounded-3xl blur-2xl" />
               <div className="relative w-64 h-72 md:w-80 md:h-96 rounded-3xl overflow-hidden border border-white/[0.08]">
                 <Image
-                  src="/ema.webp"
+                  src="/projects/me 3.jpeg"
                   alt="Emmanuel Cheeseman"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 256px, 320px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/40 to-transparent" />

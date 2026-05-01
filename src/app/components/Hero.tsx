@@ -33,27 +33,28 @@ export default function Hero() {
       <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-amber-500/[0.04] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] bg-blue-600/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 w-full py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-14 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 w-full py-20 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-20 items-center">
 
           {/* ── Left ── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             {/* Status pill */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] mb-8"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] mb-7"
             >
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-blink-dot" />
               <span className="text-slate-400 text-sm">Open to work & collaboration</span>
-              <span className="text-white/20 select-none">·</span>
-              <MapPin className="w-3.5 h-3.5 text-slate-600" />
-              <span className="text-slate-500 text-sm">Monrovia, Liberia</span>
+              <span className="text-white/20 select-none hidden sm:inline">·</span>
+              <MapPin className="w-3.5 h-3.5 text-slate-600 hidden sm:block" />
+              <span className="text-slate-500 text-sm hidden sm:inline">Monrovia, Liberia</span>
             </motion.div>
 
             {/* Headline */}
@@ -61,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.04] tracking-[-0.03em] mb-5"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.04] tracking-[-0.03em] mb-5"
             >
               Emmanuel
               <br />
@@ -73,7 +74,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35 }}
-              className="h-8 mb-6"
+              className="h-8 mb-6 flex items-center"
             >
               <TypeAnimation
                 sequence={[
@@ -100,7 +101,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mb-8"
+              className="text-slate-400 text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-8"
             >
               Monrovia-based developer and technology entrepreneur building
               software that moves Liberia forward. From{" "}
@@ -115,11 +116,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-3 mb-10"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10 w-full sm:w-auto"
             >
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-amber-400 hover:bg-amber-300 text-gray-900 font-semibold text-sm rounded-xl transition-all duration-200 hover:shadow-[0_0_28px_rgba(245,158,11,0.35)]"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-gray-900 font-semibold text-sm rounded-xl transition-all duration-200 hover:shadow-[0_0_28px_rgba(245,158,11,0.35)]"
               >
                 View My Work
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -128,7 +129,7 @@ export default function Hero() {
                 href={`https://wa.me/231880575207?text=${encodeURIComponent("Hello Emmanuel, I visited your portfolio and would like to connect.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] font-semibold text-sm rounded-xl border border-[#25D366]/25 hover:border-[#25D366]/50 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] font-semibold text-sm rounded-xl border border-[#25D366]/25 hover:border-[#25D366]/50 transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Me
@@ -137,7 +138,7 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/[0.05] hover:bg-white/[0.08] text-white font-semibold text-sm rounded-xl border border-white/[0.1] hover:border-white/[0.2] transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/[0.05] hover:bg-white/[0.08] text-white font-semibold text-sm rounded-xl border border-white/[0.1] hover:border-white/[0.2] transition-all duration-200"
               >
                 <Download className="w-4 h-4" />
                 Resume
@@ -171,7 +172,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── Right: Profile photo ── */}
+          {/* ── Right: Profile photo (desktop only) ── */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
@@ -223,32 +224,47 @@ export default function Hero() {
                 className="absolute left-1/2 -translate-x-1/2 -bottom-5 bg-[#0f0f14] border border-white/[0.08] rounded-full px-5 py-2 flex items-center gap-2 shadow-xl"
               >
                 <span className="w-2 h-2 bg-amber-400 rounded-full" />
-                <span className="text-slate-300 text-sm font-medium">
-                  CCNA Certified
-                </span>
+                <span className="text-slate-300 text-sm font-medium">CCNA Certified</span>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Mobile profile */}
+        {/* ── Mobile profile ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          className="lg:hidden flex justify-center mt-12"
+          className="lg:hidden flex flex-col items-center gap-5 mt-12"
         >
+          {/* Photo */}
           <div className="relative">
-            <div className="absolute -inset-2 bg-amber-500/10 rounded-full blur-xl" />
-            <div className="relative w-36 h-36 rounded-full overflow-hidden border-2 border-white/[0.1]">
+            <div className="absolute -inset-3 bg-amber-500/10 rounded-full blur-2xl" />
+            <div className="relative w-44 h-44 rounded-full overflow-hidden border-2 border-amber-400/20">
               <Image
                 src="/profile.webp"
                 alt="Emmanuel Cheeseman"
                 fill
                 className="object-cover"
                 priority
-                sizes="144px"
+                sizes="176px"
               />
+            </div>
+          </div>
+
+          {/* Mobile stat pills */}
+          <div className="flex items-center gap-3 flex-wrap justify-center">
+            <div className="flex items-center gap-2 px-4 py-2 bg-[#0f0f14] border border-white/[0.08] rounded-full shadow-lg">
+              <span className="text-lg font-bold text-amber-400">5+</span>
+              <span className="text-slate-500 text-xs">Projects</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-[#0f0f14] border border-white/[0.08] rounded-full shadow-lg">
+              <span className="text-lg font-bold text-blue-400">8+</span>
+              <span className="text-slate-500 text-xs">Years in Tech</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-[#0f0f14] border border-white/[0.08] rounded-full shadow-lg">
+              <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+              <span className="text-slate-300 text-xs font-medium">CCNA Certified</span>
             </div>
           </div>
         </motion.div>

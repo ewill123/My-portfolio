@@ -66,7 +66,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block">
               <div className="text-white font-semibold text-sm leading-none">Emmanuel Cheeseman</div>
-              <div className="text-slate-500 text-xs mt-0.5">Systems Architect</div>
+              <div className="text-slate-500 text-xs mt-0.5">Technology Entrepreneur</div>
             </div>
           </button>
 
@@ -191,10 +191,10 @@ export default function Navbar() {
                   </button>
                 </div>
                 <a
-                  href="tel:+231880223272"
+                  href="tel:+231880223275"
                   className="text-center text-sm text-slate-500 hover:text-slate-300 transition-colors py-1"
                 >
-                  +231 880 223 272
+                  +231 880 223 275
                 </a>
               </div>
             </motion.div>

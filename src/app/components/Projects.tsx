@@ -243,7 +243,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <button
               type="button"
               onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/55 text-white opacity-0 group-hover:opacity-100 hover:bg-black/75 transition-all duration-200"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/55 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-black/75 active:bg-black/75 transition-all duration-200"
               aria-label="Previous screenshot"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -251,7 +251,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <button
               type="button"
               onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/55 text-white opacity-0 group-hover:opacity-100 hover:bg-black/75 transition-all duration-200"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/55 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-black/75 active:bg-black/75 transition-all duration-200"
               aria-label="Next screenshot"
             >
               <ChevronRight className="w-4 h-4" />
