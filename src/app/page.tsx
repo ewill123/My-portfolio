@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
+import WhatsAppButton from "./components/WhatsAppButton";
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -42,6 +43,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating WhatsApp button */}
+      <WhatsAppButton />
     </main>
   );
 }
