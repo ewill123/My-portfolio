@@ -155,8 +155,8 @@ export default function Contact() {
                 {
                   Icon: Phone,
                   label: "Phone",
-                  value: "+231 880 223 275",
-                  href: "tel:+231880223275",
+                  value: "+231 880 223 272",
+                  href: "tel:+231880223272",
                 },
                 {
                   Icon: MessageCircle,
@@ -394,8 +394,8 @@ export default function Contact() {
 
             <p className="text-center text-slate-600 text-xs">
               Prefer to call?{" "}
-              <a href="tel:+231880223275" className="text-amber-400 hover:underline">
-                +231 880 223 275
+              <a href="tel:+231880223272" className="text-amber-400 hover:underline">
+                +231 880 223 272
               </a>{" "}
               · All inquiries are confidential.
             </p>

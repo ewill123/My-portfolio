@@ -149,13 +149,13 @@ export default function Footer() {
                 <span className="truncate">designlabliberia@gmail.com</span>
               </a>
               <a
-                href="tel:+231880223275"
+                href="tel:+231880223272"
                 className="flex items-center gap-3 text-slate-500 hover:text-amber-400 text-sm transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center group-hover:bg-amber-400/10 transition-colors flex-shrink-0">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span>+231 880 223 275</span>
+                <span>+231 880 223 272</span>
               </a>
               <a
                 href={`https://wa.me/231880575207?text=${encodeURIComponent("Hello Emmanuel, I visited your portfolio and I'd like to connect.")}`}

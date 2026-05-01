@@ -15,17 +15,17 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Emmanuel Cheeseman — Systems Architect & National Developer",
+  title: "Emmanuel Cheeseman — Technology Entrepreneur & Full-Stack Developer",
   description:
-    "Election Technology Specialist at Liberia's National Election Commission. Building national-scale infrastructure — from election systems trusted by 2M+ citizens to live productions watched by 50K+ viewers weekly.",
+    "Technology entrepreneur based in Monrovia, Liberia. Building custom business systems, mobile apps, and digital platforms that help Liberian businesses grow — from payroll automation to school management and delivery apps.",
   keywords:
-    "Emmanuel Cheeseman, NEC Liberia, Election Technology, Systems Architect, Full-Stack Developer, Liberia, Live Broadcast, AutoVerse, UNDP",
+    "Emmanuel Cheeseman, Full-Stack Developer, Liberia, Technology Entrepreneur, Mobile App Development, Business Systems, School Management, Payroll System, Monrovia, CCNA, UNDP",
   authors: [{ name: "Emmanuel Cheeseman" }],
   creator: "Emmanuel Cheeseman",
   openGraph: {
-    title: "Emmanuel Cheeseman — Systems Architect & National Developer",
+    title: "Emmanuel Cheeseman — Technology Entrepreneur & Full-Stack Developer",
     description:
-      "Building Liberia's digital infrastructure through election technology, national systems, and impact-driven software.",
+      "Building software that empowers Liberian businesses and communities — custom apps, payroll systems, delivery platforms, and more.",
     type: "website",
     locale: "en_US",
     siteName: "Emmanuel Cheeseman",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@EmmanuelCh39270",
-    title: "Emmanuel Cheeseman — Systems Architect",
+    title: "Emmanuel Cheeseman — Technology Entrepreneur",
     description:
-      "Election Technology Specialist building Liberia's digital infrastructure.",
+      "Full-stack developer building software that empowers Liberian businesses and communities.",
   },
   robots: { index: true, follow: true },
 };

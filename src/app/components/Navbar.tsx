@@ -191,10 +191,10 @@ export default function Navbar() {
                   </button>
                 </div>
                 <a
-                  href="tel:+231880223275"
+                  href="tel:+231880223272"
                   className="text-center text-sm text-slate-500 hover:text-slate-300 transition-colors py-1"
                 >
-                  +231 880 223 275
+                  +231 880 223 272
                 </a>
               </div>
             </motion.div>
